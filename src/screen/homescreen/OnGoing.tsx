@@ -1,12 +1,9 @@
 /* eslint-disable prettier/prettier */
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React, { useEffect, useState } from 'react';
-import MyCarousel from '../../component/carousel/Index';
+import React, {useEffect, useState} from 'react';
 import Card from '../../component/card/Index';
-import axios from 'axios';
-import OnGoing from './OnGoing';
-// import Carousel from 'pinar';
 
+import axios from 'axios';
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
 interface IMovie {
   // id: string;
@@ -20,42 +17,25 @@ interface IMovie {
   media_type: string;
 }
 
-const Home = () => {
+const OnGoing = () => {
   const [dataMovie, setDataMovie] = useState<IMovie[]>([]);
 
-  const fetchTrending = async () => {
+  const fetchOnGoing = async () => {
     const {data} = await axios.get(
-      'https://api.themoviedb.org/3/movie/popular?api_key=eccc5ea1919b90fc7004f8df41e8beed&language=en-US&page=1',
+      'https://api.themoviedb.org/3/movie/now_playing?api_key=eccc5ea1919b90fc7004f8df41e8beed&language=en-US&page=$1',
     );
     console.log(data.results);
     setDataMovie(data.results);
   };
 
   useEffect(() => {
-    fetchTrending();
+    fetchOnGoing();
   }, []);
-
 
   return (
     <ScrollView>
       <View style={styles.container}>
-        <MyCarousel />
-
-        {/* <Carousel style={styles.carousel}>
-          <View style={styles.slide1}>
-            {dataMovie &&
-              dataMovie.map(c => (
-                <Image
-                  style={styles.slide1image}
-                  source={{
-                    uri: `${BASE_IMAGE_URL}${c.backdrop_path}`,
-                  }}
-                />
-              ))}
-          </View>
-        </Carousel> */}
-
-        <Text style={styles.text_topic}>Trending</Text>
+        <Text style={styles.text_topic}>On Going</Text>
         <ScrollView horizontal={true}>
           <View style={styles.card}>
             {dataMovie &&
@@ -75,13 +55,12 @@ const Home = () => {
               ))}
           </View>
         </ScrollView>
-        <OnGoing />
       </View>
     </ScrollView>
   );
 };
 
-export default Home;
+export default OnGoing;
 
 const styles = StyleSheet.create({
   container: {
@@ -97,22 +76,8 @@ const styles = StyleSheet.create({
   card: {
     alignItems: 'center',
     flexDirection: 'row',
+    // flexWrap: 'wrap',
     alignContent: 'space-around',
+    // paddingLeft: 30,
   },
-  // container_carousel: {
-  //   flex: 1,
-  // },
-  // carousel: {
-  //   width: 410,
-  //   height: 200,
-  //   borderRadius: 50,
-  // },
-  // slide1: {
-  //   position: 'relative',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // },
-  // slide1image: {
-  //   borderRadius: 50,
-  // },
 });

@@ -5,8 +5,8 @@ import {View, StyleSheet, Image} from 'react-native';
 import Carousel from 'pinar';
 
 const MyCarousel = () => (
-  <View style={styles.container}>
-    <Carousel style={styles.containercar}>
+  <View style={styles.container_carousel}>
+    <Carousel style={styles.carousel}>
       <View style={styles.slide1}>
         <Image
           style={styles.slide1image}
@@ -32,19 +32,12 @@ const MyCarousel = () => (
 export default MyCarousel;
 
 const styles = StyleSheet.create({
-  container: {
-    // marginRight: 10,
+  container_carousel: {
+
+  },
+  carousel: {
     width: 410,
     height: 200,
-    // marginRight: 20,
-    // marginLeft: 15,
-    // borderRadius: 20,
-  },
-  containercar: {
-    width: 412,
-    height: 200,
-    // width: 380,
-    // height: 170,
     borderRadius: 50,
   },
   slide1: {

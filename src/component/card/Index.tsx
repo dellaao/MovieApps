@@ -7,24 +7,25 @@ import {
   Alert,
   Modal,
   TouchableHighlight,
+  ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
 import { Image } from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-// interface IMovie {
-//   id: string;
-//   // poster_path: string;
-//   // backdrop_path: string;
-//   release_date: string;
-//   title: string;
-//   vote_average: string;
-//   overview: string;
-//   original_language: string;
-//   media_type: string;
-// }
+interface IMovie {
+  // id: string;
+  title: string;
+  vote_average: string;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  backdrop_path: string;
+  original_language: string;
+  media_type: string;
+}
 
-const Card = () => {
+const Card = (props: IMovie) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View>
@@ -32,14 +33,16 @@ const Card = () => {
         <TouchableHighlight onPress={() => setModalVisible(true)}>
           <Image
             style={styles.card}
-            source={require('../../images/rons-poster.jpg')}
+            source={{
+              uri: `https://image.tmdb.org/t/p/w1280/${props.poster_path}`,
+            }}
           />
         </TouchableHighlight>
-        <Text style={styles.card_title}>Judul</Text>
-        <Text style={styles.card_releasedate}>Release Date</Text>
+        <Text style={styles.card_title}>{props.title}</Text>
+        <Text style={styles.card_releasedate}>{props.release_date}</Text>
         <View style={styles.rating}>
           <Icon name="star" size={15} color="orange" />
-          <Text style={styles.rating_text}>8.9</Text>
+          <Text style={styles.rating_text}>{props.vote_average}</Text>
         </View>
       </View>
       <View style={styles.modal_container}>
@@ -56,8 +59,9 @@ const Card = () => {
               <View style={styles.modalView}>
                 <Image
                   style={styles.bg_details}
-                  source={require('../../images/frozen2-hd.jpg')}
-                  // source={props.poster_path}
+                  source={{
+                    uri: `https://image.tmdb.org/t/p/w1280/${props.backdrop_path}`,
+                  }}
                   blurRadius={4}
                 />
                 <View style={styles.exitbutton}>
@@ -71,7 +75,9 @@ const Card = () => {
                 <View style={styles.details}>
                   <Image
                     style={styles.card}
-                    source={require('../../images/frozen-poster.jpg')}
+                    source={{
+                      uri: `https://image.tmdb.org/t/p/w1280/${props.poster_path}`,
+                    }}
                   />
                   <View style={styles.playbutton}>
                     <Icon name="play" size={20} color="white" />
@@ -79,31 +85,26 @@ const Card = () => {
                   <View style={styles.download}>
                     <Icon name="download" size={20} color="white" />
                   </View>
-                  <Text style={styles.modalTitle}>Judul</Text>
+                  <Text style={styles.modalTitle}>{props.title}</Text>
                   <View style={styles.details_text}>
-                    <View>
-                      <Text style={styles.title_details}>Duration</Text>
-                      <Text style={styles.text_details}>02h 15m</Text>
-                    </View>
                     <View>
                       <Text style={styles.title_details}>Media Type</Text>
                       <Text style={styles.text_details}>
-                        Movie
+                        {props.media_type}
                       </Text>
                     </View>
                     <View>
                       <Text style={styles.title_details}>Language</Text>
                       <Text style={styles.text_details}>
-                        Indonesia
+                        {props.original_language}
                       </Text>
                     </View>
                   </View>
-                  <Text style={styles.modalText}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Expedita, totam? Mollitia placeat dolorum, consequatur eum
-                    distinctio perferendis debitis nobis animi obcaecati autem.
-                    Eligendi, mollitia? Magnam doloribus eum sit fugit soluta?
-                  </Text>
+                  <ScrollView>
+                    <Text style={styles.modalText}>
+                      {props.overview}
+                    </Text>
+                  </ScrollView>
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setModalVisible(!modalVisible)}>
@@ -247,6 +248,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
+    flex:1,
     margin: 5,
     textAlign: 'justify',
   },
