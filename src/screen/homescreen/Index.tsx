@@ -3,9 +3,11 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, { } from 'react';
 import MyCarousel from '../../component/carousel/Index';
 import Card from '../../component/card/Index';
+
 // import axios from 'axios';
 
 // const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
+
 // interface IMovie {
 //   id: string;
 //   poster_path: string;
