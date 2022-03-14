@@ -1,19 +1,35 @@
 /* eslint-disable prettier/prettier */
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { } from 'react';
 import MyCarousel from '../../component/carousel/Index';
 import Card from '../../component/card/Index';
-import {Searchbar} from 'react-native-paper';
+// import axios from 'axios';
+
+// const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
+// interface IMovie {
+//   id: string;
+//   poster_path: string;
+//   release_date: string;
+//   date: string;
+//   title: string;
+//   vote_average: string;
+//   overview: string;
+//   backdrop_path: string;
+//   original_language: string;
+//   media_type: string;
+// }
 
 const Home = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Searchbar style={styles.searchbar} placeholder="Search" value={''} />
         <MyCarousel />
         <Text style={styles.text_topic}>Trending</Text>
         <ScrollView horizontal={true}>
           <View style={styles.card}>
+            <Card />
+            <Card />
+            <Card />
             <Card />
             <Card />
             <Card />
@@ -46,13 +62,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
-  },
-  searchbar: {
-    margin: 10,
-    borderRadius: 30,
-    marginBottom: 15,
-    backgroundColor: 'white',
-    height: 45,
   },
   text_topic: {
     marginTop: 5,

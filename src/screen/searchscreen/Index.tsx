@@ -11,9 +11,11 @@ const Search = () => {
   return (
     <View style={styles.container}>
       <Searchbar
+        placeholderTextColor={'white'}
+        iconColor="white"
+        selectionColor={'white'}
         style={styles.searchbar}
         placeholder="Search"
-        // onChangeText={onChangeSearch}
         value={''}
       />
       <Text style={styles.recomendation_text}>Rekomendasi</Text>
@@ -57,9 +59,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   searchbar: {
+    color: 'white',
     margin: 10,
-    borderRadius: 30,
-    backgroundColor: 'white',
+    borderRadius: 15,
+    marginBottom: 15,
+    backgroundColor: '#1b1f20',
+    height: 45,
   },
   recomendations: {
     flexDirection: 'row',

@@ -12,7 +12,17 @@ import React, {useState} from 'react';
 import { Image } from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
+// interface IMovie {
+//   id: string;
+//   // poster_path: string;
+//   // backdrop_path: string;
+//   release_date: string;
+//   title: string;
+//   vote_average: string;
+//   overview: string;
+//   original_language: string;
+//   media_type: string;
+// }
 
 const Card = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -29,10 +39,9 @@ const Card = () => {
         <Text style={styles.card_releasedate}>Release Date</Text>
         <View style={styles.rating}>
           <Icon name="star" size={15} color="orange" />
-          <Text style={styles.rating_text}>8.0</Text>
+          <Text style={styles.rating_text}>8.9</Text>
         </View>
       </View>
-
       <View style={styles.modal_container}>
         <View style={styles.centeredView}>
           <Modal
@@ -48,6 +57,7 @@ const Card = () => {
                 <Image
                   style={styles.bg_details}
                   source={require('../../images/frozen2-hd.jpg')}
+                  // source={props.poster_path}
                   blurRadius={4}
                 />
                 <View style={styles.exitbutton}>
@@ -76,12 +86,16 @@ const Card = () => {
                       <Text style={styles.text_details}>02h 15m</Text>
                     </View>
                     <View>
-                      <Text style={styles.title_details}>Genre</Text>
-                      <Text style={styles.text_details}>Romance</Text>
+                      <Text style={styles.title_details}>Media Type</Text>
+                      <Text style={styles.text_details}>
+                        Movie
+                      </Text>
                     </View>
                     <View>
                       <Text style={styles.title_details}>Language</Text>
-                      <Text style={styles.text_details}>Indonesia</Text>
+                      <Text style={styles.text_details}>
+                        Indonesia
+                      </Text>
                     </View>
                   </View>
                   <Text style={styles.modalText}>

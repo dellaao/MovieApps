@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 
-//BASE_URL API
 const BASE_URL = 'https://api.themoviedb.org/3/';
+// const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
+
 
 export const doGet = (param: any) => {
   return axios({
