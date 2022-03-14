@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, View, ScrollView} from 'react-native';
+import {StyleSheet, View, ScrollView, Text} from 'react-native';
 import React from 'react';
 import Card from '../../component/card/Index';
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,8 +7,12 @@ import Card from '../../component/card/Index';
 const Favorite = () => {
   return (
     <View style={styles.container}>
+      <Text style={styles.favorite}>My Favorite</Text>
       <ScrollView>
         <View style={styles.card}>
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
           <Card />
@@ -24,6 +28,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
+  },
+  favorite: {
+    // textAlign:'center',
+    marginLeft: 10,
+    marginVertical: 20,
+    fontSize: 16,
+    fontWeight: '600',
   },
   text_trending: {
     marginLeft: 10,

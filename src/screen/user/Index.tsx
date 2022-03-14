@@ -19,7 +19,7 @@ const User = () => {
         </View>
       </View>
       <View style={styles.bio}>
-        <Text style={styles.bioteks}>Settings</Text>
+        <Text style={styles.bioteks}>Settings Profile</Text>
       </View>
       <View>
         <View style={styles.setting}>
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   usersetting: {
+    borderRadius: 10,
     paddingLeft: 5,
     marginBottom: 10,
     paddingVertical: 5,
@@ -105,14 +106,14 @@ const styles = StyleSheet.create({
     height: 80,
   },
   usersetting2: {
+    borderRadius: 10,
     paddingLeft: 5,
     marginBottom: 10,
-    paddingVertical: 5,
+    paddingTop: 12,
     backgroundColor: '#1b1f20',
     height: 50,
   },
   titlesetting1: {
-    // fontSize: 16,
     marginBottom: 10,
   },
   titlesetting: {

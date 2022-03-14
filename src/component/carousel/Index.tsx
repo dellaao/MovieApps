@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     // borderRadius: 20,
   },
   containercar: {
-    width: 410,
+    width: 412,
     height: 200,
     // width: 380,
     // height: 170,
