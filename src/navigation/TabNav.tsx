@@ -17,6 +17,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from '../screen/homescreen/Index';
 import Favorite from '../screen/favoritescreen/Index';
 import Search from '../screen/searchscreen/Index';
+import User from '../screen/user/Index';
+import Dmovie from '../screen/dmovie/Index';
 
 const Tab = createBottomTabNavigator();
 const TabNav = () => {
@@ -35,7 +37,12 @@ const TabNav = () => {
           </View>
         ),
         headerRight: ({}) => (
-          <Icon name="user" size={20} color="white" style={styles.icon_user} />
+          <Icon
+            name="bell"
+            size={20}
+            color="white"
+            style={styles.icon_user}
+          />
         ),
         headerStyle: {
           backgroundColor: 'black',
@@ -57,6 +64,15 @@ const TabNav = () => {
       }}>
       <Tab.Screen
         name=" "
+        component={Home}
+        options={{
+          tabBarIcon: ({}) => (
+            <Icon name="home" size={20} color="white" style={{}} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="  "
         component={Favorite}
         options={{
           tabBarIcon: ({}) => (
@@ -65,14 +81,14 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="  "
-        component={Home}
+        name="   "
+        component={Dmovie}
         options={{
           tabBarIcon: ({}) => (
             <View style={styles.home}>
               <Image
                 source={{
-                  uri: 'https://i.postimg.cc/gwG9KZ3P/DOMOVIELOGO.png',
+                  uri: 'https://i.postimg.cc/9RdJFqZ0/dwhite.png',
                 }}
                 style={styles.iconhome}
               />
@@ -81,11 +97,22 @@ const TabNav = () => {
         }}
       />
       <Tab.Screen
-        name="   "
+        name="    "
         component={Search}
         options={{
           tabBarIcon: ({}) => (
             <Icon name="search" size={20} color="white" style={{}} />
+          ),
+          headerBackgroundContainerStyle: {backgroundColor: 'black'},
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tab.Screen
+        name="     "
+        component={User}
+        options={{
+          tabBarIcon: ({}) => (
+            <Icon name="user" size={20} color="white" style={{}} />
           ),
           headerBackgroundContainerStyle: {backgroundColor: 'black'},
           tabBarShowLabel: false,
@@ -109,8 +136,7 @@ const styles = StyleSheet.create({
   home: {
     position: 'absolute',
     bottom: 20,
-    backgroundColor: 'white',
-    // borderColor: 'white',
+    backgroundColor: '#3066bc',
     borderWidth: 5,
     borderRadius: 50,
     height: 80,
