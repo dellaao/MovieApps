@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
+  // Pressable,
   Alert,
   Modal,
   TouchableHighlight,
@@ -14,6 +14,7 @@ import React, {useState} from 'react';
 import { Image } from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Button } from 'react-native-paper';
 // import { useNavigation } from '@react-navigation/native';
 interface IMovie {
   id: string;
@@ -118,11 +119,13 @@ const Card = (props: IMovie) => {
                   <ScrollView>
                     <Text style={styles.overview}>{props.overview}</Text>
                   </ScrollView>
-                  <Pressable
+                  <Button
                     style={[styles.button, styles.addfavorite]}
+                    mode="contained"
+                    icon="plus"
                     onPress={() => storeData(props)}>
-                    <Text style={styles.textStyle}>Add Favorite</Text>
-                  </Pressable>
+                    Add Favorite
+                  </Button>
                 </View>
               </View>
             </View>
@@ -240,18 +243,9 @@ const styles = StyleSheet.create({
   button: {
     margin: 10,
     borderRadius: 20,
-    padding: 10,
     elevation: 2,
   },
-  // buttonOpen: {
-  //   backgroundColor: '#F194FF',
-  // },
   addfavorite: {
-    
-    bottom: 70,
-    backgroundColor: '#3066bc',
-  },
-  removefavorite: {
     bottom: 70,
     backgroundColor: '#3066bc',
   },
