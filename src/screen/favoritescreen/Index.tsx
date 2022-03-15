@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, View, ScrollView, Text, Pressable} from 'react-native';
+import {StyleSheet, View, ScrollView, Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import Card from '../../component/card/Index';
 import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native-paper';
 interface IMovie {
   id: string;
   title: string;
@@ -78,11 +79,13 @@ const Favorite = () => {
                   media_type={c.media_type}
                   original_language={c.original_language}
                 />
-                <Pressable
+                <Button
                   style={[styles.button, styles.removefavorite]}
+                  mode="contained"
+                  icon="delete"
                   onPress={() => RemoveData(c)}>
-                  <Text style={styles.textStyle}>Delete Favorite</Text>
-                </Pressable>
+                  remove
+                </Button>
               </View>
             ))}
         </View>
@@ -122,7 +125,6 @@ const styles = StyleSheet.create({
   button: {
     margin: 10,
     borderRadius: 20,
-    padding: 10,
     elevation: 2,
   },
   removefavorite: {
