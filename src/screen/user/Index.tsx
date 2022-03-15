@@ -8,28 +8,28 @@ const User = () => {
       <View style={styles.ava}>
         <Image
           source={{
-            uri: 'https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png',
+            uri: 'https://i.postimg.cc/Y07JqRqR/user.png',
           }}
           style={styles.myava}
         />
         <View style={styles.ava_text}>
-          <Text style={styles.nama}>Jung Jaehyun</Text>
-          <Text style={styles.status}>Member</Text>
+          <Text style={styles.nama}>Della Amelia</Text>
+          <Text style={styles.status}>Premium</Text>
           <Text style={styles.alamat}>Indonesia</Text>
         </View>
       </View>
       <View style={styles.bio}>
-        <Text style={styles.bioteks}>Settings Profile</Text>
+        <Text style={styles.bioteks}>Settings</Text>
       </View>
       <View>
         <View style={styles.setting}>
           <Text style={styles.titlesetting1}>MEMBERSHIP</Text>
           <View style={styles.usersetting}>
-            <Text style={styles.titlesetting}>D Movie Bulanan</Text>
+            <Text style={styles.titlesetting}>DO Movie Bulanan</Text>
             <Text>Subscription Valid Till 19 Mar 2022</Text>
           </View>
           <View style={styles.usersetting}>
-            <Text style={styles.titlesetting}>D Movie Bulanan</Text>
+            <Text style={styles.titlesetting}>DO Movie Bulanan</Text>
             <Text>Subscription Valid Till 23 Mar 2022</Text>
           </View>
         </View>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#3066bc',
+    color: 'orange',
   },
   alamat: {
     fontSize: 14,

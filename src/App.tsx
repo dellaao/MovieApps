@@ -10,13 +10,11 @@
 
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-// import {TabNavigation} from './navigation/TabNavigation';
 import TabNav from './navigation/TabNav';
 
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <TabNavigation /> */}
       <TabNav />
     </NavigationContainer>
   );

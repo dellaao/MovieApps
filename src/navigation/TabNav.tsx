@@ -25,24 +25,23 @@ const TabNav = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        // tabBarActiveBackgroundColor: '#696969',
+        // tabBarInactiveBackgroundColor: 'blue',
+        // tabBarActiveTintColor:'blue',
+        // tabBarInactiveTintColor:'red',
         headerShadowVisible: true,
         headerLeft: ({}) => (
           <View>
             <Image
               source={{
-                uri: 'https://i.postimg.cc/v1hJ2Zvx/DOMOVIELOGO-HEADER.png',
+                uri: 'https://i.postimg.cc/zGpXmL74/DOMOVIELOGO-HEADER.png',
               }}
               style={styles.iconhomenav}
             />
           </View>
         ),
         headerRight: ({}) => (
-          <Icon
-            name="bell"
-            size={20}
-            color="white"
-            style={styles.icon_user}
-          />
+          <Icon name="bell" size={20} style={styles.icon_user} />
         ),
         headerStyle: {
           backgroundColor: 'black',
@@ -53,10 +52,12 @@ const TabNav = () => {
           borderTopColor: 'black',
           backgroundColor: 'black',
           position: 'absolute',
-          bottom: 10,
-          left: 20,
-          right: 20,
-          borderRadius: 20,
+          // bottom: 10,
+          // left: 20,
+          // right: 20,
+          // borderRadius: 20,
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
           paddingHorizontal: 10,
           height: 70,
           ...styles.shadow,
@@ -66,8 +67,9 @@ const TabNav = () => {
         name=" "
         component={Home}
         options={{
+          tabBarActiveBackgroundColor: '#171717',
           tabBarIcon: ({}) => (
-            <Icon name="home" size={20} color="white" style={{}} />
+            <Icon name="home" color="white" size={23} style={{}} />
           ),
         }}
       />
@@ -75,8 +77,9 @@ const TabNav = () => {
         name="  "
         component={Favorite}
         options={{
+          tabBarActiveBackgroundColor: '#171717',
           tabBarIcon: ({}) => (
-            <Icon name="bookmark" size={20} color="white" style={{}} />
+            <Icon name="bookmark" color="white" size={23} style={{}} />
           ),
         }}
       />
@@ -88,7 +91,7 @@ const TabNav = () => {
             <View style={styles.home}>
               <Image
                 source={{
-                  uri: 'https://i.postimg.cc/9RdJFqZ0/dwhite.png',
+                  uri: 'https://i.postimg.cc/F1QQMvwP/DOMOVIE-LOGO.png',
                 }}
                 style={styles.iconhome}
               />
@@ -100,22 +103,20 @@ const TabNav = () => {
         name="    "
         component={Search}
         options={{
+          tabBarActiveBackgroundColor: '#171717',
           tabBarIcon: ({}) => (
-            <Icon name="search" size={20} color="white" style={{}} />
+            <Icon name="search" color="white" size={23} style={{}} />
           ),
-          headerBackgroundContainerStyle: {backgroundColor: 'black'},
-          tabBarShowLabel: false,
         }}
       />
       <Tab.Screen
         name="     "
         component={User}
         options={{
+          tabBarActiveBackgroundColor: '#171717',
           tabBarIcon: ({}) => (
-            <Icon name="user" size={20} color="white" style={{}} />
+            <Icon name="user" color="white" size={23} style={{}} />
           ),
-          headerBackgroundContainerStyle: {backgroundColor: 'black'},
-          tabBarShowLabel: false,
         }}
       />
     </Tab.Navigator>
@@ -136,18 +137,19 @@ const styles = StyleSheet.create({
   home: {
     position: 'absolute',
     bottom: 20,
-    backgroundColor: '#3066bc',
-    borderWidth: 5,
-    borderRadius: 50,
-    height: 80,
-    width: 80,
-    paddingLeft: 4,
-    paddingBottom: 10,
-    paddingTop: 15,
+    // backgroundColor: '#3066bc',
+    // borderWidth: 5,
+    // borderRadius: 50,
+    // height: 80,
+    // width: 80,
+    // paddingLeft: 4,
+    // paddingBottom: 10,
+    // paddingTop: 15,
   },
   iconhome: {
-    height: 40,
-    width: 60,
+    height: 75,
+    width: 75,
+    bottom: 8,
   },
   iconhomenav: {
     marginTop: 10,

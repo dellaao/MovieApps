@@ -5,11 +5,12 @@ import MyCarousel from '../../component/carousel/Index';
 import Card from '../../component/card/Index';
 import axios from 'axios';
 import OnGoing from './OnGoing';
+import Upcoming from './Upcoming';
 // import Carousel from 'pinar';
 
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
 interface IMovie {
-  // id: string;
+  id: string;
   title: string;
   vote_average: string;
   release_date: string;
@@ -61,8 +62,8 @@ const Home = () => {
             {dataMovie &&
               dataMovie.map(c => (
                 <Card
-                  // key={c.id}
-                  // id={c.id}
+                  id={c.id}
+                  key={c.id}
                   poster_path={`${BASE_IMAGE_URL}${c.poster_path}`}
                   backdrop_path={`${BASE_IMAGE_URL}${c.backdrop_path}`}
                   title={c.title}
@@ -75,7 +76,9 @@ const Home = () => {
               ))}
           </View>
         </ScrollView>
+        <Upcoming />
         <OnGoing />
+        <View style={styles.footer}></View>
       </View>
     </ScrollView>
   );
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
+    // height: 280,
   },
   text_topic: {
     marginTop: 5,
@@ -95,10 +99,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   card: {
+    height: 260,
     alignItems: 'center',
     flexDirection: 'row',
     alignContent: 'space-around',
   },
+  footer: {
+    height: 100,
+  }
   // container_carousel: {
   //   flex: 1,
   // },

@@ -17,12 +17,12 @@ interface IMovie {
   media_type: string;
 }
 
-const OnGoing = () => {
+const Upcoming = () => {
   const [dataMovie, setDataMovie] = useState<IMovie[]>([]);
 
   const fetchOnGoing = async () => {
     const {data} = await axios.get(
-      'https://api.themoviedb.org/3/movie/now_playing?api_key=eccc5ea1919b90fc7004f8df41e8beed&language=en-US&page=$1',
+      'https://api.themoviedb.org/3/movie/upcoming?api_key=eccc5ea1919b90fc7004f8df41e8beed',
     );
     console.log(data.results);
     setDataMovie(data.results);
@@ -35,7 +35,7 @@ const OnGoing = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.text_topic}>On Going</Text>
+        <Text style={styles.text_topic}>Upcoming</Text>
         <ScrollView horizontal={true}>
           <View style={styles.card}>
             {dataMovie &&
@@ -60,7 +60,7 @@ const OnGoing = () => {
   );
 };
 
-export default OnGoing;
+export default Upcoming;
 
 const styles = StyleSheet.create({
   container: {

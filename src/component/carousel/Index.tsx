@@ -16,7 +16,7 @@ const MyCarousel = () => (
       <View style={styles.slide2}>
         <Image
           style={styles.slide2image}
-          source={require('../../images/seven-poster.jpg')}
+          source={require('../../images/gambar2.webp')}
         />
       </View>
       <View style={styles.slide3}>

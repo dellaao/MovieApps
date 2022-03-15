@@ -8,13 +8,15 @@ import {
   Modal,
   TouchableHighlight,
   ScrollView,
+  // Button,
 } from 'react-native';
 import React, {useState} from 'react';
 import { Image } from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { useNavigation } from '@react-navigation/native';
 interface IMovie {
-  // id: string;
+  id: string;
   title: string;
   vote_average: string;
   release_date: string;
@@ -27,6 +29,19 @@ interface IMovie {
 
 const Card = (props: IMovie) => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const storeData = async (value: IMovie) => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('@favorites'); //ambil data dengan id favorite
+      const data = jsonValue != null ? JSON.parse(jsonValue as string) : []; 
+      data.push(value);
+      await AsyncStorage.setItem('@favorites', JSON.stringify(data)); //ubah data jadi string
+      console.log(value);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <View>
       <View style={styles.card_container}>
@@ -101,13 +116,11 @@ const Card = (props: IMovie) => {
                     </View>
                   </View>
                   <ScrollView>
-                    <Text style={styles.modalText}>
-                      {props.overview}
-                    </Text>
+                    <Text style={styles.overview}>{props.overview}</Text>
                   </ScrollView>
                   <Pressable
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => setModalVisible(!modalVisible)}>
+                    style={[styles.button, styles.addfavorite]}
+                    onPress={() => storeData(props)}>
                     <Text style={styles.textStyle}>Add Favorite</Text>
                   </Pressable>
                 </View>
@@ -196,7 +209,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    bottom: 300,
+    bottom: 400,
     width: 412,
     height: 300,
   },
@@ -209,7 +222,7 @@ const styles = StyleSheet.create({
   modalView: {
     // top: 20,
     width: 412,
-    height: 600,
+    height: 700,
     margin: 20,
     backgroundColor: 'black',
     borderRadius: 20,
@@ -233,7 +246,13 @@ const styles = StyleSheet.create({
   // buttonOpen: {
   //   backgroundColor: '#F194FF',
   // },
-  buttonClose: {
+  addfavorite: {
+    
+    bottom: 70,
+    backgroundColor: '#3066bc',
+  },
+  removefavorite: {
+    bottom: 70,
     backgroundColor: '#3066bc',
   },
   textStyle: {
@@ -247,13 +266,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  modalText: {
-    flex:1,
+  overview: {
+    // height: 40,
+    // flex: 1,
     margin: 5,
     textAlign: 'justify',
+    // backgroundColor: 'white',
+    // bottom: 80,
   },
   details: {
-    top: 97,
+    top: 100,
   },
   details_text: {
     // backgroundColor:'white',
@@ -273,3 +295,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
 });
+
