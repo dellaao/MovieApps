@@ -1,15 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 // import {Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {StyleSheet, View, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Home from '../screen/homescreen/Index';
-import Favorite from '../screen/favoritescreen/Index';
-import Search from '../screen/searchscreen/Index';
-import User from '../screen/user/Index';
-import Dmovie from '../screen/dmovie/Index';
+import Home from '../screen/homescreen';
+import Favorite from '../screen/favoritescreen';
 
 // function HomeScreen() {
 //   return (

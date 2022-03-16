@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import {Searchbar} from 'react-native-paper';
-import Home from '../homescreen/Index';
+import Home from '../homescreen';
+import {styles} from './styles';
 
 const Dmovie = () => {
   return (
@@ -21,18 +22,3 @@ const Dmovie = () => {
 };
 
 export default Dmovie;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  searchbar: {
-    color: 'white',
-    margin: 10,
-    borderRadius: 15,
-    marginBottom: 15,
-    backgroundColor: '#1b1f20',
-    height: 45,
-  },
-});

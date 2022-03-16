@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Card from '../../component/card/Index';
+import Card from '../../component/card';
 
 import axios from 'axios';
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w1280/';
 interface IMovie {
   id: string;
   title: string;
+  genre_ids:number[];
   vote_average: string;
   release_date: string;
   poster_path: string;
@@ -43,6 +44,7 @@ const Upcoming = () => {
                 <Card
                   key={c.id}
                   // id={c.id}
+                  genre_ids={c.genre_ids}
                   poster_path={`${BASE_IMAGE_URL}${c.poster_path}`}
                   backdrop_path={`${BASE_IMAGE_URL}${c.backdrop_path}`}
                   title={c.title}
@@ -50,8 +52,7 @@ const Upcoming = () => {
                   vote_average={c.vote_average}
                   overview={c.overview}
                   media_type={c.media_type}
-                  original_language={c.original_language}
-                />
+                  original_language={c.original_language} id={''}                />
               ))}
           </View>
         </ScrollView>

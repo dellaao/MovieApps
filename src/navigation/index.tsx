@@ -12,23 +12,20 @@
 import * as React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { StyleSheet, View, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Home from '../screen/homescreen/Index';
-import Favorite from '../screen/favoritescreen/Index';
-import Search from '../screen/searchscreen/Index';
-import User from '../screen/user/Index';
-import Dmovie from '../screen/dmovie/Index';
+import Home from '../screen/homescreen';
+import Favorite from '../screen/favoritescreen';
+import Search from '../screen/searchscreen';
+import User from '../screen/user';
+import Dmovie from '../screen/dmovie';
+import {styles} from './styles';
 
 const Tab = createBottomTabNavigator();
 const TabNav = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        // tabBarActiveBackgroundColor: '#696969',
-        // tabBarInactiveBackgroundColor: 'blue',
-        // tabBarActiveTintColor:'blue',
-        // tabBarInactiveTintColor:'red',
         headerShadowVisible: true,
         headerLeft: ({}) => (
           <View>
@@ -52,10 +49,6 @@ const TabNav = () => {
           borderTopColor: 'black',
           backgroundColor: 'black',
           position: 'absolute',
-          // bottom: 10,
-          // left: 20,
-          // right: 20,
-          // borderRadius: 20,
           borderTopRightRadius: 20,
           borderTopLeftRadius: 20,
           paddingHorizontal: 10,
@@ -123,45 +116,6 @@ const TabNav = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
-  home: {
-    position: 'absolute',
-    bottom: 20,
-    // backgroundColor: '#3066bc',
-    // borderWidth: 5,
-    // borderRadius: 50,
-    // height: 80,
-    // width: 80,
-    // paddingLeft: 4,
-    // paddingBottom: 10,
-    // paddingTop: 15,
-  },
-  iconhome: {
-    height: 75,
-    width: 75,
-    bottom: 8,
-  },
-  iconhomenav: {
-    marginTop: 10,
-    marginLeft: 5,
-    marginBottom: 10,
-    height: 30,
-    width: 100,
-  },
-  icon_user: {
-    marginRight: 20,
-    marginTop: 10,
-  },
-});
+
 
 export default TabNav;

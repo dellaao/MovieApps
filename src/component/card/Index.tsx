@@ -1,21 +1,18 @@
 /* eslint-disable prettier/prettier */
 import {
-  StyleSheet,
   Text,
   View,
-  // Pressable,
   Alert,
   Modal,
   TouchableHighlight,
   ScrollView,
-  // Button,
 } from 'react-native';
 import React, {useState} from 'react';
 import { Image } from 'react-native-animatable';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button } from 'react-native-paper';
-// import { useNavigation } from '@react-navigation/native';
+import {styles} from './styles';
 interface IMovie {
   id: string;
   title: string;
@@ -26,6 +23,7 @@ interface IMovie {
   backdrop_path: string;
   original_language: string;
   media_type: string;
+  genre_ids: number[];
 }
 
 const Card = (props: IMovie) => {
@@ -104,9 +102,9 @@ const Card = (props: IMovie) => {
                   <Text style={styles.modalTitle}>{props.title}</Text>
                   <View style={styles.details_text}>
                     <View>
-                      <Text style={styles.title_details}>Media Type</Text>
+                      <Text style={styles.title_details}>Rating</Text>
                       <Text style={styles.text_details}>
-                        {props.media_type}
+                        {props.vote_average}
                       </Text>
                     </View>
                     <View>
@@ -137,156 +135,4 @@ const Card = (props: IMovie) => {
 };
 
 export default Card;
-
-const styles = StyleSheet.create({
-  card_container: {
-    borderRadius: 10,
-    margin: 10,
-    // backgroundColor: 'white',
-    width: 150,
-  },
-  card: {
-    borderRadius: 10,
-    width: 150,
-    height: 200,
-  },
-  card_title: {
-    fontWeight: '600',
-  },
-  card_releasedate: {
-    color: 'grey',
-  },
-  rating: {
-    top: 175.5,
-    left: 107.5,
-    padding: 3,
-    flexDirection: 'row',
-    position: 'absolute',
-    borderRadius: 7,
-    // backgroundColor: '#2b2e30',
-  },
-  rating_text: {
-    fontSize: 12,
-    marginLeft: 3,
-    color: 'white',
-  },
-  buttons: {
-    top: 400,
-    flexDirection: 'row',
-    position: 'absolute',
-    marginRight: 50,
-    justifyContent: 'space-around',
-  },
-  exitbutton: {
-    top: 10,
-    left: 380,
-    position: 'absolute',
-    borderRadius: 50,
-  },
-  download: {
-    top: 140,
-    left: 280,
-    position: 'absolute',
-    backgroundColor: '#3066bc',
-    borderRadius: 50,
-    height: 50,
-    width: 50,
-    paddingLeft: 15,
-    paddingTop: 14,
-  },
-  playbutton: {
-    top: 140,
-    left: 200,
-    position: 'absolute',
-    backgroundColor: '#3066bc',
-    borderRadius: 50,
-    height: 50,
-    width: 50,
-    paddingLeft: 19,
-    paddingTop: 14,
-  },
-  modal_container: {
-    flex: 1,
-  },
-  bg_details: {
-    position: 'absolute',
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    bottom: 400,
-    width: 412,
-    height: 300,
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    // top: 20,
-    width: 412,
-    height: 700,
-    margin: 20,
-    backgroundColor: 'black',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    margin: 10,
-    borderRadius: 20,
-    elevation: 2,
-  },
-  addfavorite: {
-    bottom: 70,
-    backgroundColor: '#3066bc',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalTitle: {
-    // top: 10,
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  overview: {
-    // height: 40,
-    // flex: 1,
-    margin: 5,
-    textAlign: 'justify',
-    // backgroundColor: 'white',
-    // bottom: 80,
-  },
-  details: {
-    top: 100,
-  },
-  details_text: {
-    // backgroundColor:'white',
-    marginVertical: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 10,
-  },
-  title_details: {
-    // textAlign: 'center',
-    marginHorizontal: 10,
-    fontWeight: '600',
-    fontSize: 12,
-  },
-  text_details: {
-    fontSize: 10,
-    marginHorizontal: 10,
-  },
-});
 

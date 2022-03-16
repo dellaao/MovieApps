@@ -3,11 +3,11 @@ import * as React from 'react';
 import {StyleSheet, Image, View} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Home from '../screen/homescreen/Index';
-import Favorite from '../screen/favoritescreen/Index';
-import Search from '../screen/searchscreen/Index';
-import User from '../screen/user/Index';
-import Dmovie from '../screen/dmovie/Index';
+import Home from '../screen/homescreen';
+import Favorite from '../screen/favoritescreen';
+import Search from '../screen/searchscreen';
+import User from '../screen/user';
+import Dmovie from '../screen/dmovie';
 
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // const Tab = createBottomTabNavigator();

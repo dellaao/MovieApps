@@ -1,13 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {Searchbar} from 'react-native-paper';
+import { styles } from './styles';
 
 const Search = () => {
-  // const [searchQuery, setSearchQuery] = React.useState('');
-
-  // const onChangeSearch = query => setSearchQuery(query);
-
   return (
     <View style={styles.container}>
       <Searchbar
@@ -52,37 +49,4 @@ const Search = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  searchbar: {
-    color: 'white',
-    margin: 10,
-    borderRadius: 15,
-    marginBottom: 15,
-    backgroundColor: '#1b1f20',
-    height: 45,
-  },
-  recomendations: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    marginRight: 15,
-  },
-  recomendation_text: {
-    marginTop: 10,
-    marginLeft: 10,
-  },
-  recomendation_image: {
-    marginTop: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-    width: 180,
-    height: 90,
-  },
-});
-
 export default Search;
